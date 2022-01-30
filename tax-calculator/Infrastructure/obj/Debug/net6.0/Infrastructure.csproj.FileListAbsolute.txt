@@ -1,0 +1,17 @@
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\bin\Debug\net6.0\Infrastructure.deps.json
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\bin\Debug\net6.0\Infrastructure.dll
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\bin\Debug\net6.0\ref\Infrastructure.dll
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\bin\Debug\net6.0\Infrastructure.pdb
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\bin\Debug\net6.0\Application.dll
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\bin\Debug\net6.0\Domain.dll
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\bin\Debug\net6.0\Application.pdb
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\bin\Debug\net6.0\Domain.pdb
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.AssemblyReference.cache
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\obj\Debug\net6.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\obj\Debug\net6.0\Infrastructure.AssemblyInfoInputs.cache
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\obj\Debug\net6.0\Infrastructure.AssemblyInfo.cs
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CopyComplete
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\obj\Debug\net6.0\Infrastructure.dll
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\obj\Debug\net6.0\ref\Infrastructure.dll
+C:\Users\ronal\source\repos\tax-calculator\tax-calculator\Infrastructure\obj\Debug\net6.0\Infrastructure.pdb
