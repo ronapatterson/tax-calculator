@@ -1,6 +1,6 @@
 ﻿namespace Application.Dtos.TaxJar
 {
-    public class TaxForOrderDto
+    public class OrderTaxParameterDto
     {
         public string FromCountry { get; set; }
         public string FromZipCode { get; set; }

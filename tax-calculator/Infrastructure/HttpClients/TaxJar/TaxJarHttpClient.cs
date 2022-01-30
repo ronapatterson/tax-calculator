@@ -21,7 +21,23 @@ namespace Infrastructure.HttpClients.TaxJar
             _taxJarUrl = config["TaxCalculatorApis:TaxJar"];            
         }
 
-        public async Task<Tax> GetOrderTax(TaxForOrderDto dto, CancellationToken cancellationToken)
+        public async Task<Rate> GetLocationTaxRate(LocationTaxRateParameterDto dto, CancellationToken cancellationToken)
+        {
+            var request = new RestRequest($"{_taxJarUrl}/rates/{dto.Zip}", Method.Get)
+                .AddQueryParameter("country", dto.Country)
+                .AddQueryParameter("city", dto.City);
+
+            if (!string.IsNullOrWhiteSpace(dto.Street))
+                request.AddQueryParameter("street", dto.Street);
+
+            var response = await Get(request, cancellationToken);
+
+            checkForErrors(response);
+
+            return JsonConvert.DeserializeObject<Rate>(response.Content);
+        }
+
+        public async Task<Tax> GetOrderTax(OrderTaxParameterDto dto, CancellationToken cancellationToken)
         {
             var request = new RestRequest($"{_taxJarUrl}/taxes", Method.Post)
                 .AddJsonBody(new

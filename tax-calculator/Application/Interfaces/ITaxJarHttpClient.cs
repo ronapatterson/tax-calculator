@@ -5,6 +5,7 @@ namespace Application.Interfaces
 {
     public interface ITaxJarHttpClient
     {
-        Task<Tax> GetOrderTax(TaxForOrderDto dto, CancellationToken cancellationToken);
+        Task<Tax> GetOrderTax(OrderTaxParameterDto dto, CancellationToken cancellationToken);
+        Task<Rate> GetLocationTaxRate(LocationTaxRateParameterDto dto, CancellationToken cancellationToken);
     }
 }
