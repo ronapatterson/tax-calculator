@@ -1,9 +1,9 @@
 ﻿using Domain.Entities.TaxJar;
 using Application.Dtos.TaxJar;
 
-namespace Application.Interfaces
+namespace Application.Interfaces.TaxCalculators
 {
-    public interface ITaxJarHttpClient
+    internal interface ITaxJarHttpClient
     {
         Task<Tax> GetOrderTax(OrderTaxParameterDto dto, CancellationToken cancellationToken);
         Task<Rate> GetLocationTaxRate(LocationTaxRateParameterDto dto, CancellationToken cancellationToken);

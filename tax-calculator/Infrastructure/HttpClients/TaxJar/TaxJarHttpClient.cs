@@ -2,9 +2,9 @@
 using Newtonsoft.Json;
 using Microsoft.Extensions.Configuration;
 
-using Application.Interfaces;
 using Domain.Entities.TaxJar;
 using Application.Dtos.TaxJar;
+using Application.Interfaces.TaxCalculators;
 
 namespace Infrastructure.HttpClients.TaxJar
 {
