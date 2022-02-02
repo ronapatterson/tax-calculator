@@ -7,6 +7,7 @@ namespace Infrastructure.Common
         public HttpClient()
         {}
 
+        //Made reusable for other tax calculator httpclient implementations
         public async Task<RestResponse> Fetch(string baseUrl, RestRequest request, CancellationToken cancellationToken)
         {
             var client = new RestClient(baseUrl);

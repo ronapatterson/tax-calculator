@@ -3,7 +3,7 @@ using Application.Dtos.TaxJar;
 
 namespace Application.Mappings.TaxJar
 {
-    public static class OrderTaxOutputDtoMapping
+    internal static class OrderTaxOutputDtoMapping
     {
         public static OrderTaxOutputDto ToOrderTax(this Tax dto) => new OrderTaxOutputDto
         {
