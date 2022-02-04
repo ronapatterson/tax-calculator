@@ -14,13 +14,13 @@ namespace Application.Services
             _taxJarHttpClient = taxJarHttpClient;
         }
 
-        public async Task<OrderTaxOutputDto> GetOrderTax(OrderTaxParameterDto dto, CancellationToken cancellationToken)
+        public async Task<OrderTaxOutputDto> GetTaxJarOrderTax(OrderTaxParameterDto dto, CancellationToken cancellationToken)
         {
             var orderTax = await _taxJarHttpClient.GetOrderTax(dto, cancellationToken);
             return orderTax.ToOrderTax();
         }        
 
-        public async Task<LocationTaxRateOutputDto> GetLocationTaxRate(LocationTaxRateParameterDto dto, CancellationToken cancellationToken)
+        public async Task<LocationTaxRateOutputDto> GetTaxJarLocationTaxRate(LocationTaxRateParameterDto dto, CancellationToken cancellationToken)
         {
             var locationTaxRate = await _taxJarHttpClient.GetLocationTaxRate(dto, cancellationToken);
             return locationTaxRate.ToLocationTaxRateDto();
