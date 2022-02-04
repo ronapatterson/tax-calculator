@@ -21,7 +21,7 @@ namespace Infrastructure.HttpClients.TaxJar
             _taxJarUrl = config["TaxCalculatorApis:TaxJar"];            
         }
 
-        public async Task<Rate> GetLocationTaxRate(LocationTaxRateParameterDto dto, CancellationToken cancellationToken)
+        public async Task<RateEntity> GetLocationTaxRate(LocationTaxRateParameterDto dto, CancellationToken cancellationToken)
         {
             var request = new RestRequest($"{_taxJarUrl}/rates/{dto.Zip}", Method.Get)
                 .AddQueryParameter("country", dto.Country)
@@ -34,10 +34,10 @@ namespace Infrastructure.HttpClients.TaxJar
 
             checkForErrors(response);
 
-            return JsonConvert.DeserializeObject<Rate>(response.Content);
+            return JsonConvert.DeserializeObject<RateEntity>(response.Content);
         }
 
-        public async Task<Tax> GetOrderTax(OrderTaxParameterDto dto, CancellationToken cancellationToken)
+        public async Task<TaxEntity> GetOrderTax(OrderTaxParameterDto dto, CancellationToken cancellationToken)
         {
             var request = new RestRequest($"{_taxJarUrl}/taxes", Method.Post)
                 .AddJsonBody(new
@@ -60,7 +60,7 @@ namespace Infrastructure.HttpClients.TaxJar
 
             checkForErrors(response);
 
-            return JsonConvert.DeserializeObject<Tax>(response.Content);
+            return JsonConvert.DeserializeObject<TaxEntity>(response.Content);
         }
 
         private async Task<RestResponse> Get(RestRequest request, CancellationToken cancellationToken)

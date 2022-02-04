@@ -2,6 +2,11 @@
 
 namespace Domain.Entities.TaxJar
 {
+    public class RateEntity
+    {
+        public Rate Rate { get; set; }
+    }
+
     public class Rate
     {
         public string City { get; set; }

@@ -2,6 +2,11 @@
 
 namespace Domain.Entities.TaxJar
 {
+    public class TaxEntity
+    {
+        public Tax Tax { get; set; }
+    }
+
     public class Tax
     {
         [JsonProperty("amount_to_collect")]

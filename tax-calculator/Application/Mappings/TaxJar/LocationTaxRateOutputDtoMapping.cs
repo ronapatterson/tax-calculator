@@ -5,20 +5,20 @@ namespace Application.Mappings.TaxJar
 {
     internal static class LocationTaxRateOutputDtoMapping
     {
-        public static LocationTaxRateOutputDto ToLocationTaxRateDto(this Rate dto) => new LocationTaxRateOutputDto
+        public static LocationTaxRateOutputDto ToLocationTaxRateDto(this RateEntity dto) => new LocationTaxRateOutputDto
         {
-            Zip = dto.Zip,
-            City = dto.City,
-            State = dto.State,
-            County = dto.County,
-            Country = dto.Country,
-            CityRate = dto.CityRate,
-            StateRate = dto.StateRate,
-            CountyRate = dto.CountyRate,
-            CountryRate = dto.CountryRate,
-            FreightTaxable = dto.FreightTaxable,
-            CombinedRate = dto.CombinedRate,            
-            CombinedDistrictRate = dto.CombinedDistrictRate            
+            Zip = dto.Rate.Zip,
+            City = dto.Rate.City,
+            State = dto.Rate.State,
+            County = dto.Rate.County,
+            Country = dto.Rate.Country,
+            CityRate = dto.Rate.CityRate,
+            StateRate = dto.Rate.StateRate,
+            CountyRate = dto.Rate.CountyRate,
+            CountryRate = dto.Rate.CountryRate,
+            FreightTaxable = dto.Rate.FreightTaxable,
+            CombinedRate = dto.Rate.CombinedRate,            
+            CombinedDistrictRate = dto.Rate.CombinedDistrictRate            
         };
     }
 }
