@@ -18,6 +18,10 @@ namespace Infrastructure.HttpClients.TaxJar
         private readonly Common.IHttpClient _httpClient;
         public TaxJarHttpClient(IConfiguration config, Common.IHttpClient httpClient)
         {
+            config = new ConfigurationBuilder()
+                .AddUserSecrets("cdd5709b-74de-4524-bccd-09e7dfeeca09")
+                .Build();
+
             _httpClient = httpClient;
             _taxJarApiKey = config["ApiKeys:TaxJar"];
             _taxJarUrl = config["TaxCalculatorApis:TaxJar"];            

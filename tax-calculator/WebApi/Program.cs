@@ -7,6 +7,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddTransient<Infrastructure.Common.IHttpClient, Infrastructure.Common.HttpClient>();
+builder.Services.AddTransient<Application.Interfaces.ITaxService, Application.Services.TaxService>();
+builder.Services.AddTransient<Application.Interfaces.TaxCalculators.ITaxJarHttpClient, 
+    Infrastructure.HttpClients.TaxJar.TaxJarHttpClient>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
