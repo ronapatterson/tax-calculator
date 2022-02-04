@@ -1,11 +1,13 @@
 ﻿using RestSharp;
 using Newtonsoft.Json;
+using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Configuration;
 
 using Domain.Entities.TaxJar;
 using Application.Dtos.TaxJar;
 using Application.Interfaces.TaxCalculators;
 
+[assembly:InternalsVisibleTo("WebApi")]
 namespace Infrastructure.HttpClients.TaxJar
 {
     internal class TaxJarHttpClient : ITaxJarHttpClient

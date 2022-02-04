@@ -1,8 +1,11 @@
-﻿using Application.Interfaces;
+﻿using System.Runtime.CompilerServices;
+
+using Application.Interfaces;
 using Application.Dtos.TaxJar;
 using Application.Mappings.TaxJar;
 using Application.Interfaces.TaxCalculators;
 
+[assembly: InternalsVisibleTo("WebApi")]
 namespace Application.Services
 {
     internal class TaxService : ITaxService
