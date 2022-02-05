@@ -18,7 +18,7 @@ namespace Domain.Entities.TaxJar
         public double Shipping { get; set; }
         
         [JsonProperty("tax_source")]
-        public string TaxSource { get; set; }
+        public string? TaxSource { get; set; }
 
         [JsonProperty("taxable_amount")]
         public double TaxableAmount { get; set; }
