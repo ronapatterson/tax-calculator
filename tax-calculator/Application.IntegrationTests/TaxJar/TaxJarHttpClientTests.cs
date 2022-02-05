@@ -141,5 +141,67 @@ namespace Application.IntegrationTests.TaxJar
             await taxJarClient.GetOrderTax(orderTaxDto, _cancellationToken);
         }
         #endregion
+
+        #region GetLocationTaxRate
+        [TestMethod]
+        public async Task GetLocationTaxRateForTaxableCity()
+        {
+            //Arrange
+            var locationTaxRateDto = new LocationTaxRateParameterDto()
+            {
+                Country = "US",
+                City = "Seattle",
+                Street = "400 Broad St",
+                Zip = "98109"
+            };
+
+            var taxJarClient = new TaxJarHttpClient(_config, _httpClient);
+
+            //Act
+            var result = await taxJarClient.GetLocationTaxRate(locationTaxRateDto, _cancellationToken);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.AreNotEqual(0, result.Rate.CityRate);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TaxJarException))]
+        public async Task GetLocationTaxRateWithoutRequiredZip_ThrowsBadRequest()
+        {
+            //Arrange
+            var locationTaxRateDto = new LocationTaxRateParameterDto()
+            {
+                Country = "US",
+                City = "Seattle",
+                Street = "400 Broad St",
+                Zip = "" //missing required field
+            };
+
+            var taxJarClient = new TaxJarHttpClient(_config, _httpClient);
+
+            //Act
+            await taxJarClient.GetLocationTaxRate(locationTaxRateDto, _cancellationToken);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TaxJarException))]
+        public async Task GetLocationTaxRateWithInvalidParameter_ThrowsBadRewuest()
+        {
+            //Arrange
+            var locationTaxRateDto = new LocationTaxRateParameterDto()
+            {
+                Country = "EU", //Unsupported country EU
+                City = "Seattle",
+                Street = "400 Broad St",
+                Zip = "98109"
+            };
+
+            var taxJarClient = new TaxJarHttpClient(_config, _httpClient);
+
+            //Act
+            await taxJarClient.GetLocationTaxRate(locationTaxRateDto, _cancellationToken);
+        }
+        #endregion
     }
 }
