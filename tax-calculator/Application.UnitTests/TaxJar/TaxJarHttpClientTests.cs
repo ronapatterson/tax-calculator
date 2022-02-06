@@ -245,5 +245,145 @@ namespace Application.UnitTests.TaxJar
             await taxJarClient.GetOrderTax(orderTaxDto, _cancellationToken);
         }
         #endregion
+
+        #region GetLocationTaxRate
+        [TestMethod]
+        public async Task GetLocationTaxRateForTaxableCity_ReturnsLocationTaxRate()
+        {
+            //Arrange
+            var locationTaxRateDto = new LocationTaxRateParameterDto()
+            {
+                Country = "US",
+                City = "Waterbury",
+                Street = "400 Broad St",
+                Zip = "03456"
+            };
+
+            var rate = new Rate
+            {
+                City = "WATERBURY",
+                CityRate = "0.0",
+                State = "CT",
+                CombinedRate = "0.1223",
+                Country = "US",
+                CountryRate = "0.0",
+                County = "NEW LONDON",
+                CountyRate = "0.00",
+                FreightTaxable = false,
+                StateRate = "0.0325",
+                Zip = "03456",
+                CombinedDistrictRate = "0.01"
+            };
+
+            var rateEntity = new RateEntity()
+            {
+                Rate = rate
+            };
+
+            var jsonResult = JsonConvert.SerializeObject(rateEntity);
+
+            var response = new RestResponse()
+            {
+                Content = jsonResult,
+                IsSuccessful = true,
+                ResponseStatus = ResponseStatus.Completed,
+                StatusCode = System.Net.HttpStatusCode.OK
+            };
+
+            _mockTaxJarHttpClient.Setup(s => s.GetLocationTaxRate(locationTaxRateDto, It.IsAny<CancellationToken>())).ReturnsAsync(rateEntity);
+            _httpClient.Setup(s => s.Fetch(_baseUrl, It.IsAny<RestRequest>(), It.IsAny<CancellationToken>())).ReturnsAsync(response);
+
+            var taxJarClient = new TaxJarHttpClient(_mockConfig.Object, _httpClient.Object);
+
+            //Act
+            var result = await taxJarClient.GetLocationTaxRate(locationTaxRateDto, _cancellationToken);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(rateEntity.Rate.CityRate, result.Rate.CityRate);
+            Assert.AreEqual(rateEntity.Rate.City, result.Rate.City);
+            Assert.AreEqual(rateEntity.Rate.State, result.Rate.State);
+            Assert.AreEqual(rateEntity.Rate.CombinedRate, result.Rate.CombinedRate);
+            Assert.AreEqual(rateEntity.Rate.Country, result.Rate.Country);
+            Assert.AreEqual(rateEntity.Rate.CountryRate, result.Rate.CountryRate);
+            Assert.AreEqual(rateEntity.Rate.County, result.Rate.County);
+            Assert.AreEqual(rateEntity.Rate.CountyRate, result.Rate.CountyRate);
+            Assert.AreEqual(rateEntity.Rate.FreightTaxable, result.Rate.FreightTaxable);
+            Assert.AreEqual(rateEntity.Rate.StateRate, result.Rate.StateRate);
+            Assert.AreEqual(rateEntity.Rate.Zip, result.Rate.Zip);
+            Assert.AreEqual(rateEntity.Rate.CombinedDistrictRate, result.Rate.CombinedDistrictRate);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TaxJarException))]
+        public async Task GetLocationTaxRateWithoutRequiredZip_ThrowsBadRequest()
+        {
+            //Arrange
+            var locationTaxRateDto = new LocationTaxRateParameterDto()
+            {
+                Country = "US",
+                City = "Seattle",
+                Street = "400 Broad St",
+                Zip = "" //missing required field
+            };
+
+            string jsonResult = @"{
+                'status': 400,
+                'error': 'Bad Request',
+                'detail': 'No zip, required when country is US'
+            }";
+
+            var response = new RestResponse()
+            {
+                Content = jsonResult,
+                IsSuccessful = false,
+                ResponseStatus = ResponseStatus.Error,
+                StatusCode = System.Net.HttpStatusCode.NotAcceptable
+            };
+
+            _httpClient.Setup(s => s.Fetch(_baseUrl, It.IsAny<RestRequest>(), It.IsAny<CancellationToken>())).ReturnsAsync(response);
+
+            var taxJarClient = new TaxJarHttpClient(_mockConfig.Object, _httpClient.Object);
+
+            //Act
+            await taxJarClient.GetLocationTaxRate(locationTaxRateDto, _cancellationToken);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof (TaxJarException))]
+        public async Task GetLocationTaxRateWithInvalidParameter_ThrowsBadRewuest()
+        {
+            //Arrange
+            var locationTaxRateDto = new LocationTaxRateParameterDto()
+            {
+                Country = "EU", //Unsupported country EU
+                City = "Seattle",
+                Street = "400 Broad St",
+                Zip = "98109"
+            };
+
+
+            string jsonResult = @"{
+                'status': 400,
+                'error': 'Bad Request',
+                'detail': 'EU is unsupported country'
+            }";
+
+            var response = new RestResponse()
+            {
+                Content = jsonResult,
+                IsSuccessful = false,
+                ResponseStatus = ResponseStatus.Error,
+                StatusCode = System.Net.HttpStatusCode.NotAcceptable
+            };
+
+            _httpClient.Setup(s => s.Fetch(_baseUrl, It.IsAny<RestRequest>(), It.IsAny<CancellationToken>())).ReturnsAsync(response);
+
+            var taxJarClient = new TaxJarHttpClient(_mockConfig.Object, _httpClient.Object);
+
+            //Act
+            await taxJarClient.GetLocationTaxRate(locationTaxRateDto, _cancellationToken);
+        }
+        #endregion
     }
 }
