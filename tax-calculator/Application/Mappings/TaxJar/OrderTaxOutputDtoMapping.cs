@@ -5,14 +5,14 @@ namespace Application.Mappings.TaxJar
 {
     internal static class OrderTaxOutputDtoMapping
     {
-        public static OrderTaxOutputDto ToOrderTax(this TaxEntity dto) => new OrderTaxOutputDto
+        public static OrderTaxOutputDto ToOrderTax(this TaxEntity model) => new OrderTaxOutputDto()
         {
-            Rate = dto.Tax.Rate,
-            Shipping = dto.Tax.Shipping,
-            TaxSource = dto.Tax.TaxSource,            
-            AmountToCollect = dto.Tax.AmountToCollect,
-            OrderTotalAmount = dto.Tax.OrderTotalAmount,
-            TaxableAmount = dto.Tax.TaxableAmount
+            Rate = model?.Tax?.Rate ?? 0,
+            Shipping = model?.Tax?.Shipping ?? 0,
+            TaxSource = model?.Tax?.TaxSource ?? null,
+            AmountToCollect = model?.Tax?.AmountToCollect ?? 0,
+            OrderTotalAmount = model?.Tax?.OrderTotalAmount ?? 0,
+            TaxableAmount = model?.Tax?.TaxableAmount ?? 0
         };
     }
 }

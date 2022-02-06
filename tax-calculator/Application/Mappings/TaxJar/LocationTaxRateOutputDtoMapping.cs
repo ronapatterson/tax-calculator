@@ -5,20 +5,20 @@ namespace Application.Mappings.TaxJar
 {
     internal static class LocationTaxRateOutputDtoMapping
     {
-        public static LocationTaxRateOutputDto ToLocationTaxRateDto(this RateEntity dto) => new LocationTaxRateOutputDto
+        public static LocationTaxRateOutputDto ToLocationTaxRateDto(this RateEntity model) => new LocationTaxRateOutputDto
         {
-            Zip = dto.Rate.Zip,
-            City = dto.Rate.City,
-            State = dto.Rate.State,
-            County = dto.Rate.County,
-            Country = dto.Rate.Country,
-            CityRate = dto.Rate.CityRate,
-            StateRate = dto.Rate.StateRate,
-            CountyRate = dto.Rate.CountyRate,
-            CountryRate = dto.Rate.CountryRate,
-            FreightTaxable = dto.Rate.FreightTaxable,
-            CombinedRate = dto.Rate.CombinedRate,            
-            CombinedDistrictRate = dto.Rate.CombinedDistrictRate            
+            Zip = model?.Rate?.Zip ?? null,
+            City = model?.Rate?.City ?? null,
+            State = model?.Rate?.State ?? null,
+            County = model?.Rate?.County ?? null,
+            Country = model?.Rate?.Country ?? null,
+            CityRate = model?.Rate?.CityRate ?? null,
+            StateRate = model?.Rate?.StateRate ?? null,
+            CountyRate = model?.Rate?.CountyRate ?? null,
+            CountryRate = model?.Rate?.CountryRate ?? null,
+            FreightTaxable = model?.Rate?.FreightTaxable ?? null,
+            CombinedRate = model?.Rate?.CombinedRate ?? null,            
+            CombinedDistrictRate = model?.Rate?.CombinedDistrictRate ?? null
         };
     }
 }
