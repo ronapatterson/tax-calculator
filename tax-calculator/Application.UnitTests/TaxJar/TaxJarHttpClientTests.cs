@@ -154,7 +154,12 @@ namespace Application.UnitTests.TaxJar
 
             //Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(0, result.Tax.AmountToCollect);
+            Assert.AreEqual(taxEntity.Tax.TaxSource, result.Tax.TaxSource);
+            Assert.AreEqual(taxEntity.Tax.TaxableAmount, result.Tax.TaxableAmount);
+            Assert.AreEqual(taxEntity.Tax.AmountToCollect, result.Tax.AmountToCollect);
+            Assert.AreEqual(taxEntity.Tax.OrderTotalAmount, result.Tax.OrderTotalAmount);
+            Assert.AreEqual(taxEntity.Tax.Shipping, result.Tax.Shipping);
+            Assert.AreEqual(taxEntity.Tax.Rate, result.Tax.Rate);
         }
 
         [TestMethod]
@@ -349,7 +354,7 @@ namespace Application.UnitTests.TaxJar
 
         [TestMethod]
         [ExpectedException(typeof (TaxJarException))]
-        public async Task GetLocationTaxRateWithInvalidParameter_ThrowsBadRewuest()
+        public async Task GetLocationTaxRateWithInvalidParameter_ThrowsBadRequest()
         {
             //Arrange
             var locationTaxRateDto = new LocationTaxRateParameterDto()
