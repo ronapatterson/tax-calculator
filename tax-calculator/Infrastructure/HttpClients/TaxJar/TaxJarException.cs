@@ -1,4 +1,7 @@
-﻿namespace Infrastructure.HttpClients.TaxJar
+﻿using System.Runtime.CompilerServices;
+
+[assembly:InternalsVisibleTo("Application.IntegrationTests")]
+namespace Infrastructure.HttpClients.TaxJar
 {
     internal class TaxJarException : Exception
     {

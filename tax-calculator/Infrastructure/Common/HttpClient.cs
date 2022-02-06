@@ -1,7 +1,8 @@
 ﻿using RestSharp;
 using System.Runtime.CompilerServices;
 
-[assembly:InternalsVisibleTo("WebApi")]
+[assembly:InternalsVisibleTo("WebApi"),
+    InternalsVisibleTo("Application.IntegrationTests")]
 namespace Infrastructure.Common
 {
     internal class HttpClient : IHttpClient

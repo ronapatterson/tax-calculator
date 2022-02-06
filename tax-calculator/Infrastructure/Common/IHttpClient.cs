@@ -1,7 +1,9 @@
 ﻿using RestSharp;
 using System.Runtime.CompilerServices;
 
-[assembly:InternalsVisibleTo("WebApi")]
+[assembly:InternalsVisibleTo("WebApi"),
+    InternalsVisibleTo("Application.UnitTests"),
+    InternalsVisibleTo("DynamicProxyGenAssembly2")]
 namespace Infrastructure.Common
 {
     internal interface IHttpClient

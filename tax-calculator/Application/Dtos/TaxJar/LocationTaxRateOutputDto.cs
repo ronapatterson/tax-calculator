@@ -10,7 +10,7 @@
         public string CountryRate { get; set; }
         public string County { get; set; }
         public string CountyRate { get; set; }
-        public bool FreightTaxable { get; set; }
+        public bool? FreightTaxable { get; set; }
         public string State { get; set; }
         public string StateRate { get; set; }
         public string Zip { get; set; }

@@ -31,7 +31,7 @@ namespace Domain.Entities.TaxJar
         public string CountyRate { get; set; }
 
         [JsonProperty("freight_taxable")]
-        public bool FreightTaxable { get; set; }
+        public bool? FreightTaxable { get; set; }
 
         public string State { get; set; }
 

@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "5d9aaada-ef76-44d1-8c4d-f29c6166c537": {
+      "ProjectGuid": "5d9aaada-ef76-44d1-8c4d-f29c6166c537",
+      "DisplayName": "Domain",
+      "ColorIndex": 0
+    },
+    "8c74c1f1-a13f-4f89-afeb-273d60fd908f": {
+      "ProjectGuid": "8c74c1f1-a13f-4f89-afeb-273d60fd908f",
+      "DisplayName": "Application",
+      "ColorIndex": 1
+    },
+    "f8dc064b-0582-4fbd-9ed7-dcdc102b945c": {
+      "ProjectGuid": "f8dc064b-0582-4fbd-9ed7-dcdc102b945c",
+      "DisplayName": "Infrastructure",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "b84da6de-396f-4fa6-ab4b-e4ffdf52a4df": {
+      "ProjectGuid": "b84da6de-396f-4fa6-ab4b-e4ffdf52a4df",
+      "DisplayName": "WebApi",
+      "ColorIndex": 3
+    },
+    "0b661ce5-f5e8-4452-8210-c10184d50933": {
+      "ProjectGuid": "0b661ce5-f5e8-4452-8210-c10184d50933",
+      "DisplayName": "Application.IntegrationTests",
+      "ColorIndex": 4
+    },
+    "4207c38b-4efb-4e93-ab43-57d09ad62e43": {
+      "ProjectGuid": "4207c38b-4efb-4e93-ab43-57d09ad62e43",
+      "DisplayName": "Application.UnitTests",
+      "ColorIndex": 5
+    },
+    "6214bd0e-5c95-44e8-a09e-30a5bb82f996": {
+      "ProjectGuid": "6214bd0e-5c95-44e8-a09e-30a5bb82f996",
+      "DisplayName": "Application.IntegrationTests",
+      "ColorIndex": 6
+    },
+    "d692875a-3a70-42b3-8b19-c0e6c1263660": {
+      "ProjectGuid": "d692875a-3a70-42b3-8b19-c0e6c1263660",
+      "DisplayName": "WebApi",
+      "ColorIndex": 7
+    },
+    "8af84101-a100-4053-ad1e-9bbccaec6c62": {
+      "ProjectGuid": "8af84101-a100-4053-ad1e-9bbccaec6c62",
+      "DisplayName": "WebApi",
+      "ColorIndex": 8
+    },
+    "3e81880f-9b38-485d-9d4e-755f6f700f10": {
+      "ProjectGuid": "3e81880f-9b38-485d-9d4e-755f6f700f10",
+      "DisplayName": "Application.IntegrationTests",
+      "ColorIndex": 9
+    },
+    "92c4d3cd-ff1e-4fc1-8092-893279c3c89a": {
+      "ProjectGuid": "92c4d3cd-ff1e-4fc1-8092-893279c3c89a",
+      "DisplayName": "Application.IntegrationTests",
+      "ColorIndex": 10
+    },
+    "374eb308-8972-47cb-99c4-8ed733499f7c": {
+      "ProjectGuid": "374eb308-8972-47cb-99c4-8ed733499f7c",
+      "DisplayName": "Application.UnitTests",
+      "ColorIndex": 11
+    }
+  },
+  "NextColorIndex": 12
+}
