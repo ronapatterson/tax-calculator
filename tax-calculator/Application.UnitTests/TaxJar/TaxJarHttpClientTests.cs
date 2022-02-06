@@ -1,5 +1,6 @@
 using Moq;
-using System.Linq;
+using RestSharp;
+using Newtonsoft.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -11,9 +12,6 @@ using Domain.Entities.TaxJar;
 using Application.Dtos.TaxJar;
 using Infrastructure.HttpClients.TaxJar;
 using Application.Interfaces.TaxCalculators;
-using RestSharp;
-using System.Net.Http;
-using Newtonsoft.Json;
 
 namespace Application.UnitTests.TaxJar
 {
