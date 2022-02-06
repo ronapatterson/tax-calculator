@@ -8,7 +8,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Infrastructure.Common;
 using Application.Dtos.TaxJar;
 using Infrastructure.HttpClients.TaxJar;
-using Application.Interfaces.TaxCalculators;
 
 namespace Application.IntegrationTests.TaxJar
 {
@@ -54,7 +53,7 @@ namespace Application.IntegrationTests.TaxJar
 
             //Assert
             Assert.IsNotNull(result);
-            Assert.AreNotEqual(0, result.Tax.AmountToCollect);
+            Assert.IsTrue(result.Tax.AmountToCollect > 0);
         }
 
         [TestMethod]
