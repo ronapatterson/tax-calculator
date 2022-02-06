@@ -5,7 +5,8 @@ using Application.Dtos.TaxJar;
 using Application.Mappings.TaxJar;
 using Application.Interfaces.TaxCalculators;
 
-[assembly: InternalsVisibleTo("WebApi")]
+[assembly: InternalsVisibleTo("WebApi"),
+    InternalsVisibleTo("Application.IntegrationTests")]
 namespace Application.Services
 {
     internal class TaxService : ITaxService
