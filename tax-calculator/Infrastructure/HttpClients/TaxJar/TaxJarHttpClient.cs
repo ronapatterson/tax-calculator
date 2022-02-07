@@ -20,7 +20,7 @@ namespace Infrastructure.HttpClients.TaxJar
         {
             config = new ConfigurationBuilder()
                 .AddUserSecrets("cdd5709b-74de-4524-bccd-09e7dfeeca09")
-                .Build();
+                .Build(); //Secrets id found in infrastructure.csproj file
 
             _httpClient = httpClient;
             _taxJarApiKey = config["ApiKeys:TaxJar"];
